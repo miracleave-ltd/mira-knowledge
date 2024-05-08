@@ -37,6 +37,7 @@
 │   ├── .env                            環境変数関連
 │   └── compose.yml                     Docker Compose設定
 ├── document                             ドキュメント
+│   ├── api                             API設計書
 │   └── db                              データベース関連
 │       ├── ddl                         テーブルDDL
 │       └── table                       テーブル定義書
