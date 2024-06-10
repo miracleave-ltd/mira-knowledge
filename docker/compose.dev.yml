@@ -11,7 +11,7 @@ services:
       - 3316:3306
       - 33160:33060
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
       - mysql-datas:/var/lib/mysql
@@ -44,7 +44,7 @@ services:
     networks:
       - mira-knowledge-network
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - ../source/api:/home/gradle/src
 
@@ -60,7 +60,7 @@ services:
     networks:
       - mira-knowledge-network
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - ../source/app:/usr/src/app
 
