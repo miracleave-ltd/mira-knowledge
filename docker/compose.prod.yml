@@ -42,13 +42,10 @@ services:
     tty: true
     depends_on:
       - db
-      - web
     networks:
       - mira-knowledge-network
     env_file:
       - ./.env.production
-    volumes:
-      - ../source/api:/home/gradle/src
 
   app:
     container_name: mira-knowledge-app
@@ -63,8 +60,6 @@ services:
       - mira-knowledge-network
     env_file:
       - ./.env.production
-    volumes:
-      - ../source/app:/usr/src/app
 
 networks:
   mira-knowledge-network:
