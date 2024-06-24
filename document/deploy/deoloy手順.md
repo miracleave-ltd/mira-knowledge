@@ -10,7 +10,7 @@
 その後、下記コマンドで ssh 接続を行う
 
 ```
-ssh -i C:\\Users\\山田翔太\\.ssh\\test-key-pair.pem ec2-user@204.236.223.213
+ssh -i C:\\Users\\山田翔太\\.ssh\\mira-knowledge-key-pair.pem ec2-user@18.234.126.40
 ```
 
 2. Docker と Docker compose を install する。あと git も。
@@ -98,7 +98,7 @@ sudo  docker-compose build web
 sudo docker-compose up -d web
 ```
 
-コンテナの再起動停止
+コンテナの再起動停止と、停止
 
 ```
 sudo docker update --restart=no mira-knowledge-api
