@@ -134,4 +134,12 @@ docker-compose -f compose.prod.yml build
 
 docker-compose -f compose.prod.yml --env-file .env.production up -d
 
+## デバッグ用
+
+コンテナログ出力
+
+```
+
+```
+
 ### EC2 インスタンス作成時
