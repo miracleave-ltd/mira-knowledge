@@ -122,4 +122,16 @@ docker-compose -f compose.prod.yml --env-file .env.production up -d
 docker-compose -f compose.yml --env-file .env up -d
 ```
 
+# 現在動作しているコンテナを停止
+
+docker-compose -f compose.prod.yml down
+
+# 新しいイメージをビルド
+
+docker-compose -f compose.prod.yml build
+
+# 新しいコンテナを起動
+
+docker-compose -f compose.prod.yml --env-file .env.production up -d
+
 ### EC2 インスタンス作成時
