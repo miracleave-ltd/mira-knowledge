@@ -123,5 +123,3 @@ docker-compose -f compose.yml --env-file .env up -d
 ```
 
 ### EC2 インスタンス作成時
-
-#### インバウンドルールで一旦
