@@ -10,7 +10,7 @@
 その後、下記コマンドで ssh 接続を行う
 
 ```
-ssh -i C:\\Users\\山田翔太\\.ssh\\mira-knowledge-key-pair.pem ec2-user@18.234.126.40
+ssh -i C:\\Users\\山田翔太\\.ssh\\mira-knowledge-key-pair.pem ec2-user@54.157.4.156
 ```
 
 2. Docker と Docker compose を install する。あと git も。
@@ -136,10 +136,19 @@ docker-compose -f compose.prod.yml --env-file .env.production up -d
 
 ## デバッグ用
 
-コンテナログ出力
+コンテナ状態確認
 
 ```
-
+docker ps -a
 ```
 
 ### EC2 インスタンス作成時
+
+docker network connect mira-knowledge-network mira-knowledge-db
+
+1.  docker network connect mira-knowledge-network mira-knowledge-web
+
+## Nginx だけで完結するように修正して、成功したら他のコンテナに着手していく
+
+2.  docker network connect mira-knowledge-network mira-knowledge-api
+    docker network connect mira-knowledge-network mira-knowledge-app
