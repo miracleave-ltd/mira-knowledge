@@ -10,7 +10,7 @@
 その後、下記コマンドで ssh 接続を行う
 
 ```
-ssh -i C:\\Users\\山田翔太\\.ssh\\mira-knowledge-key-pair.pem ec2-user@54.157.4.156
+ssh -i C:\\Users\\山田翔太\\.ssh\\mira-knowledge-key-pair.pem ec2-user@18.212.160.206
 ```
 
 2. Docker と Docker compose を install する。あと git も。
@@ -133,6 +133,14 @@ docker-compose -f compose.prod.yml build
 # 新しいコンテナを起動
 
 docker-compose -f compose.prod.yml --env-file .env.production up -d
+
+# 不要な Docker オブジェクトの削除
+
+docker system prune -a --volumes
+
+# ビルドキャッシュの削除
+
+docker builder prune
 
 ## デバッグ用
 
