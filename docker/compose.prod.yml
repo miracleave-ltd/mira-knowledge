@@ -10,8 +10,7 @@ services:
     networks:
       - mira-knowledge-network
     ports:
-      - 3316:3306
-      - 33160:33060
+      - 3316:3306, 33160:33060
     env_file:
       - ./.env.production
     volumes:
@@ -30,8 +29,7 @@ services:
     networks:
       - mira-knowledge-network
     ports:
-      - 80:80
-      - 443:443
+      - 80:80, 443:443
 
   api:
     container_name: mira-knowledge-api
@@ -39,7 +37,6 @@ services:
       context: ../
       dockerfile: ./docker/api/Dockerfile.prod
     restart: always
-    tty: true
     depends_on:
       - db
     networks:
@@ -53,7 +50,6 @@ services:
       context: ../
       dockerfile: ./docker/app/Dockerfile.prod
     restart: always
-    tty: true
     depends_on:
       - web
     networks:
