@@ -1,25 +1,19 @@
+# ベースイメージとして nginx を使用
 FROM nginx:1.25.5-alpine3.19
 
 # 開発と本番でファイル名を分ける為にビルド引数を定義
 ARG NGINX_CONF=default.prod.conf
 
+# システムのタイムゾーンを日本時間 (Asia/Tokyo) に設定
 RUN apk update \
     && apk add --no-cache tzdata \
     && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
-# Vue.js アプリケーションをビルド
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-# ビルドされたアプリケーションファイルを nginx のドキュメントルートにコピー
-COPY ./dist /usr/share/nginx/html
-
+# nginx の設定ファイルをコピー
 COPY ./docker/web/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/web/${NGINX_CONF} /etc/nginx/conf.d/default.conf
 
+# 環境変数を設定 (日本語環境)
 ENV LANG=ja_JP.UTF-8 \
     LC_CTYPE=ja_JP.UTF-8 \
     LC_NUMERIC=ja_JP.UTF-8 \
@@ -35,4 +29,5 @@ ENV LANG=ja_JP.UTF-8 \
     LC_IDENTIFICATION=ja_JP.UTF-8 \
     LC_ALL=
 
+# デーモンモードを無効にして nginx を実行
 CMD ["nginx", "-g", "daemon off;"]
