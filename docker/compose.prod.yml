@@ -10,7 +10,8 @@ services:
     networks:
       - mira-knowledge-network
     ports:
-      - 3316:3306, 33160:33060
+      - "3316:3306" # ホストのポート3316をコンテナのポート3306にマッピング
+      - "33160:33060" # ホストのポート33160をコンテナのポート33060にマッピング
     env_file:
       - ./.env.production
     volumes:
@@ -29,7 +30,8 @@ services:
     networks:
       - mira-knowledge-network
     ports:
-      - 80:80, 443:443
+      - "80:80"
+      - "443:443"
 
   api:
     container_name: mira-knowledge-api
@@ -44,7 +46,7 @@ services:
     env_file:
       - ./.env.production
     ports:
-      - 8080:8080 # ポート8080を公開
+      - "8080:8080" # ポート8080を公開
 
   app:
     container_name: mira-knowledge-app
