@@ -17,5 +17,5 @@ CREATE TABLE `opinions` (
   `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
   PRIMARY KEY (`id`),
   KEY `FK_opinions_knowledge_id` (`knowledge_id`),
-  CONSTRAINT `FK_opinions_knowledge_id` FOREIGN KEY (`knowledge_id`) REFERENCES `knowledge` (`id`)
+  CONSTRAINT `FK_opinions_knowledge` FOREIGN KEY (`knowledge_id`) REFERENCES `knowledge` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='意見';
