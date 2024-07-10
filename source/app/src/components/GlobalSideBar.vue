@@ -22,20 +22,20 @@
               <li class="nav-item">
                 <router-link class="nav-link" to="/">
                   <fa class="el_sideBar_icon" icon="address-book"/>
-                  <span class="ml-2">仮</span>
+                  <span class="ml-2">記事投稿</span>
                 </router-link>
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" to="/" >
                   <fa class="el_sideBar_icon" icon="user-plus"/>
-                  <span class="ml-2">仮</span>
+                  <span class="ml-2">意見投稿</span>
                 </router-link>
               </li>
             </ul>
           </nav>
         </div>
         <footer class="bl_sidebar_item _footer p-3">
-          <a href="#" class="nav-link bl_sidebar_logout">
+          <a href="/login" class="nav-link bl_sidebar_logout">
             <fa class="el_sideBar_icon _logout" icon="arrow-right-from-bracket"/>
             <span>サインアウト</span>
           </a>

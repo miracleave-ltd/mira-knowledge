@@ -43,7 +43,7 @@
               <router-link class="dropdown-item" to="/user-profile">アカウント詳細</router-link>
             </li>
             <li>
-              <a class="dropdown-item" href="#" >サインアウト</a>
+              <a class="dropdown-item" href="login" >サインアウト</a>
             </li>
           </ul>
         </div>
