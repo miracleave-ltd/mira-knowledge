@@ -145,6 +145,10 @@ docker system prune -a --volumes
 
 docker builder prune
 
+# バッシュでコンテナの中に入る
+
+docker exec -it mira-knowledge-app sh
+
 ## デバッグ用
 
 コンテナ状態確認

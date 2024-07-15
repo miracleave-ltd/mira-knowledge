@@ -10,8 +10,8 @@ services:
     networks:
       - mira-knowledge-network
     ports:
-      - "3316:3306" # ホストのポート3316をコンテナのポート3306にマッピング
-      - "33160:33060" # ホストのポート33160をコンテナのポート33060にマッピング
+      - "3316:3306"
+      - "33160:33060"
     env_file:
       - ./.env.production
     volumes:
@@ -32,8 +32,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - app_data:/usr/share/nginx/html
 
   api:
     container_name: mira-knowledge-api
@@ -48,7 +46,7 @@ services:
     env_file:
       - ./.env.production
     ports:
-      - "8080:8080" # ポート8080を公開
+      - "8080:8080"
 
   app:
     container_name: mira-knowledge-app
@@ -56,16 +54,12 @@ services:
       context: ../
       dockerfile: ./docker/app/Dockerfile.prod
     restart: always
-    depends_on:
-      - web
     networks:
       - mira-knowledge-network
     env_file:
       - ./.env.production
     volumes:
       - app_data:/usr/share/nginx/html
-    command: >
-      sh -c "npm install && npm run build && cp -r /usr/src/app/dist/* /usr/share/nginx/html"
 
 networks:
   mira-knowledge-network:

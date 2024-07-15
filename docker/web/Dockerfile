@@ -1,4 +1,11 @@
-# ベースイメージとして nginx を使用
+FROM node:20.12.2-buster
+WORKDIR /usr/src/app
+COPY ../../source/app/package*.json ./
+RUN npm install
+COPY ../../source/app .
+RUN npm run build
+
+# nginxイメージを使用するステージ
 FROM nginx:1.25.5-alpine3.19
 
 # 開発と本番でファイル名を分ける為にビルド引数を定義
@@ -12,6 +19,9 @@ RUN apk update \
 # nginx の設定ファイルをコピー
 COPY ./docker/web/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/web/${NGINX_CONF} /etc/nginx/conf.d/default.conf
+
+# appコンテナからビルドされた静的ファイルをコピー
+COPY --from=builder /app/build /usr/share/nginx/html
 
 # 環境変数を設定 (日本語環境)
 ENV LANG=ja_JP.UTF-8 \
