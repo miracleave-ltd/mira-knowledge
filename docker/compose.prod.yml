@@ -32,6 +32,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - app_data:/usr/share/nginx/html
 
   api:
     container_name: mira-knowledge-api
@@ -60,10 +62,17 @@ services:
       - mira-knowledge-network
     env_file:
       - ./.env.production
+    volumes:
+      - app_data:/usr/share/nginx/html
+    command: >
+      sh -c "npm install && npm run build && cp -r /usr/src/app/dist/* /usr/share/nginx/html"
 
 networks:
   mira-knowledge-network:
+    driver: bridge
 
 volumes:
+  app_data:
+    driver: local
   mysql-datas:
   mysql-logs:

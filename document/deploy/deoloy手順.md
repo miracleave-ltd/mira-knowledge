@@ -10,7 +10,7 @@
 その後、下記コマンドで ssh 接続を行う
 
 ```
-ssh -i C:\\Users\\山田翔太\\.ssh\\mira-knowledge-key-pair.pem ec2-user@54.86.6.75
+ssh -i C:\\Users\\山田翔太\\.ssh\\mira-knowledge-key-pair.pem ec2-user@44.204.235.161
 ```
 
 2. Docker と Docker compose を install する。あと git も。
@@ -45,10 +45,13 @@ sudo usermod -a -G docker ec2-user
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-実行権限を付与
-
 ```
+# 実行権限を付与
 sudo chmod +x /usr/local/bin/docker-compose
+# 現在のユーザーをdockerグループに追加
+sudo usermod -aG docker $USER
+# 変更を即反映する
+newgrp docker
 ```
 
 インストール出来ているか確認
