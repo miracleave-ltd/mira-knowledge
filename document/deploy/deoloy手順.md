@@ -149,6 +149,10 @@ docker builder prune
 
 docker exec -it mira-knowledge-app sh
 
+# バックグラウンドで build を実行するコマンド(log はコマンド実行時のカレントディレクトリに吐かれる)
+
+nohup docker-compose -f compose.prod.yml build > build.log 2>&1 &
+
 ## デバッグ用
 
 コンテナ状態確認
