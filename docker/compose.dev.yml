@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   db:
     container_name: mira-knowledge-db
@@ -11,7 +13,7 @@ services:
       - 3316:3306
       - 33160:33060
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
       - mysql-datas:/var/lib/mysql
@@ -22,20 +24,20 @@ services:
     build:
       context: ../
       dockerfile: ./docker/web/Dockerfile
+      args:
+        - NGINX_CONF=default.dev.conf
     restart: always
     networks:
       - mira-knowledge-network
     ports:
       - 80:80
       - 443:443
-    volumes:
-      - ./web/default.conf:/etc/nginx/conf.d/default.conf
 
   api:
     container_name: mira-knowledge-api
     build:
       context: ../
-      dockerfile: ./docker/api/Dockerfile
+      dockerfile: ./docker/api/Dockerfile.dev
     restart: always
     tty: true
     depends_on:
@@ -44,7 +46,7 @@ services:
     networks:
       - mira-knowledge-network
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - ../source/api:/home/gradle/src
 
@@ -52,7 +54,7 @@ services:
     container_name: mira-knowledge-app
     build:
       context: ../
-      dockerfile: ./docker/app/Dockerfile
+      dockerfile: ./docker/app/Dockerfile.dev
     restart: always
     tty: true
     depends_on:
@@ -60,7 +62,7 @@ services:
     networks:
       - mira-knowledge-network
     env_file:
-      - ./.env
+      - ./.env.dev
     volumes:
       - ../source/app:/usr/src/app
 
