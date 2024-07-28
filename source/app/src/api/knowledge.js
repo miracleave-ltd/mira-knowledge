@@ -11,8 +11,10 @@ export const knowledge = (client) => {
   const createKnowledge = async (data) => {
     return await client.post("/api/knowledge", data);
   };
-  retrun;
-  {
-    getAllKnowledges, getKnowledge, createKnowledgeOpinion, createKnowledge;
-  }
+  return {
+    getAllKnowledges,
+    getKnowledge,
+    createKnowledgeOpinion,
+    createKnowledge,
+  };
 };

@@ -1,6 +1,7 @@
 package com.miraknowledge.api.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.miraknowledge.api.validator.OpinionValidator;
 import com.miraknowledge.api.object.request.OpinionCreateRequest;
 import com.miraknowledge.api.service.OpinionService;
+import com.miraknowledge.api.validator.OpinionValidator;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/knowledge/{knowledgeId}/opinions")
+@CrossOrigin(origins = "*")
 public class OpinionController {
     private final OpinionValidator validator;
     private final OpinionService service;

@@ -1,7 +1,4 @@
-<script setup>
-
-
-</script>
+<script setup></script>
 
 <template>
   <div class="ly_sidebar">
@@ -9,26 +6,38 @@
       <div class="bl_sidebar_inner">
         <div class="bl_sidebar_item">
           <figure class="bl_slider_logo p-md-3">
-            <img src="../assets/images/logo.webp" alt="">
+            <img src="../assets/images/logo.webp" alt="" />
           </figure>
           <nav class="position-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
                 <router-link class="nav-link" to="/">
-                  <fa class="el_sideBar_icon" icon="house"/>
+                  <fa class="el_sideBar_icon" icon="house" />
                   <span class="ml-2">ナレッジ一覧</span>
                 </router-link>
               </li>
               <li class="nav-item">
+                <router-link class="nav-link" to="/registration">
+                  <fa class="el_sideBar_icon" icon="user-plus" />
+                  <span class="ml-2">ナレッジ投稿</span>
+                </router-link>
+              </li>
+              <li class="nav-item">
                 <router-link class="nav-link" to="/">
-                  <fa class="el_sideBar_icon" icon="address-book"/>
+                  <fa class="el_sideBar_icon" icon="address-book" />
                   <span class="ml-2">記事投稿</span>
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/" >
-                  <fa class="el_sideBar_icon" icon="user-plus"/>
+                <router-link class="nav-link" to="/">
+                  <fa class="el_sideBar_icon" icon="user-plus" />
                   <span class="ml-2">意見投稿</span>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/">
+                  <fa class="el_sideBar_icon" icon="user-plus" />
+                  <span class="ml-2">ナレッジ詳細(モックアップ)</span>
                 </router-link>
               </li>
             </ul>
@@ -36,11 +45,14 @@
         </div>
         <footer class="bl_sidebar_item _footer p-3">
           <a href="/login" class="nav-link bl_sidebar_logout">
-            <fa class="el_sideBar_icon _logout" icon="arrow-right-from-bracket"/>
+            <fa
+              class="el_sideBar_icon _logout"
+              icon="arrow-right-from-bracket"
+            />
             <span>サインアウト</span>
           </a>
 
-          <div class="bl_sideCopyRight ">
+          <div class="bl_sideCopyRight">
             <small>&copy; 2024 炎龍 ~Fire Dragon~</small>
           </div>
         </footer>
@@ -48,7 +60,6 @@
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .bl_sidebar_inner {
@@ -61,8 +72,7 @@
 }
 
 .bl_sideCopyRight {
-
-  color:rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .bl_slider_logo {
@@ -74,12 +84,12 @@
 }
 
 .bl_slider_logo:after {
-  content: '';
+  content: "";
   position: relative;
   margin-top: 15px;
   width: 80px;
   height: 0.5px;
-  background-color: rgba(255,255,255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .bl_slider_logo > img {
@@ -98,7 +108,7 @@
   width: 230px;
   z-index: 100;
 
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(to bottom, #0d305e 0%, #1d6fb6 100%);
 }
 
@@ -121,10 +131,11 @@
   }
 } */
 
-.bl_sidebar .nav-link, .bl_sidebar_logout {
+.bl_sidebar .nav-link,
+.bl_sidebar_logout {
   display: flex;
   align-items: baseline;
-  gap: .5em;
+  gap: 0.5em;
   color: #fff;
 }
 
@@ -145,5 +156,4 @@
   flex-direction: column;
   gap: 24px 0;
 }
-
 </style>
