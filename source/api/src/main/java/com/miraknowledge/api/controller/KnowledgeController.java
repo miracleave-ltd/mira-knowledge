@@ -3,6 +3,7 @@ package com.miraknowledge.api.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.miraknowledge.api.validator.KnowledgeValidator;
 import com.miraknowledge.api.object.request.KnowledgeCreateRequest;
 import com.miraknowledge.api.object.response.KnowledgeListResponse;
 import com.miraknowledge.api.object.response.KnowledgeResponse;
 import com.miraknowledge.api.service.KnowledgeService;
+import com.miraknowledge.api.validator.KnowledgeValidator;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/knowledge")
+@CrossOrigin(origins = "*")
 public class KnowledgeController {
     private final KnowledgeValidator validator;
     private final KnowledgeService service;

@@ -1,0 +1,109 @@
+:root {
+  --main_color1: #546e8f;
+}
+
+html {
+  background-color: #f6f8fa;
+}
+
+#app {
+  background-color: #f6f8fa;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* ====================================================
+block
+==================================================== */
+
+.ly_main {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.bl_textLineWrap {
+  white-space: break-spaces;
+}
+
+/* ====================================================
+element
+==================================================== */
+
+.el_lv2Heading {
+  position: relative;
+  padding-bottom: .4em;
+  margin-bottom: .8em;
+  border-bottom: 2px solid #d7d7d7;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+/* .el_lv2Heading::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--main_color1);
+} */
+
+/* md */
+@media not screen and (min-width:768px) {
+  .el_lv2Heading { font-size: 20px; }
+
+}
+
+.el_inputSmall {
+  width: 100%;
+  max-width: 100%;
+}
+@media screen and (min-width:576px) {
+  .el_inputSmall {
+    max-width: 300px;
+  }
+}
+
+.el_textInfo {
+  color: rgb(0, 90, 255);
+  font-weight: bold;
+}
+
+.el_inputError {
+  color: #c00;
+  font-weight: bold;
+}
+
+/* --------------------------------------------
+フォーム
+-----------------------------------------------*/
+/*任意と必須アイコン*/
+.bl_inputform .required {
+  position: relative;
+  top: -1.5px;
+  border-radius: 3px;
+  background: #fff;
+  display: inline-block;
+  margin-left: .65em;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.5em;
+  padding: 0 0.3em;
+  user-select: none;
+}
+.bl_inputform .required.must {
+  border: 1px solid #eda6a6;
+  color: #d00;
+}
+
+.bl_inputform .required.any  {
+  border: 1px solid #ccc;
+  color: #777;
+}
