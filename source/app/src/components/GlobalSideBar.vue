@@ -22,7 +22,7 @@
                   <span class="ml-2">ナレッジ投稿</span>
                 </router-link>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <router-link class="nav-link" to="/">
                   <fa class="el_sideBar_icon" icon="address-book" />
                   <span class="ml-2">記事投稿</span>
@@ -33,13 +33,7 @@
                   <fa class="el_sideBar_icon" icon="user-plus" />
                   <span class="ml-2">意見投稿</span>
                 </router-link>
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/">
-                  <fa class="el_sideBar_icon" icon="user-plus" />
-                  <span class="ml-2">ナレッジ詳細(モックアップ)</span>
-                </router-link>
-              </li>
+              </li> -->
             </ul>
           </nav>
         </div>
